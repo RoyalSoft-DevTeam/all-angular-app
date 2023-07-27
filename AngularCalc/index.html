@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <!-- Loading css attachments -->
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <!-- Loading js attachments -->
+    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/js/angular/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="smileCalc">
+        <div ng-controller="smileCalcCtrl">
+            <div class="background" style="display: flex; height: 100vh; justify-content: center; align-items: center; flex-direction: column;">
+                <div ng-init="valueInput=''" style="display: block">
+                    <div>
+                        <input type="text" ng-model="valueInput" class="form-control pt-2" placeholder="0">
+                        <input type="button" ng-model="valueInput" class="btn btn-success" value="Init">
+                    </div>
+                </div>
+                <div style="display: block">
+                    <div>
+                        <table class="table-background table table-bordered" style="width: 300px; height: 300px">
+                            <tr>
+                                <td ng-repeat="x in arrayRow1" ng-click="setNumber(x)">{{x}}</td>
+                            </tr>
+                            <tr>
+                                <td ng-repeat="x in arrayRow2" ng-click="setNumber(x)">{{x}}</td>
+                            </tr>
+                            <tr>
+                                <td ng-repeat="x in arrayRow3" ng-click="setNumber(x)">{{x}}</td>
+                            </tr>
+                            <tr>
+                                <td ng-repeat="x in arrayRow4" ng-click="setNumber(x)">{{x}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading js attachments made by smile -->
+    <script src="assets/js/custom.js"></script>
+</body>
+</html>

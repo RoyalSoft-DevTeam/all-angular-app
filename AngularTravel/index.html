@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Travel</title>
+
+    <!-- Angular js file load -->
+    <script src="assets/js/angular/angular.min.js"></script>
+</head>
+<body>
+
+    <!-- <div ng-app="smileApp">
+        <form name="smileForm" ng-controller="validateCtrl" novalidate>
+            <p>
+                Name: <br>
+                <input type="text" name="userName" ng-model="userName" required>
+                <span style="color:red" ng-show="smileForm.userName.$dirty && smileForm.userName.$invalid">
+                    <span ng-show="smileForm.userName.$error.required">Username is required.</span>
+                </span>
+            </p>
+            <p>
+                Email: <br>
+                <input type="email" name="userEmail" ng-model="userEmail" required>
+                <span style="color:red" ng-show="smileForm.userEmail.$dirty && smileForm.userEmail.$invalid">
+                <span ng-show="smileForm.userEmail.$error.required">Useremail is required.</span>
+                    <span ng-show="smileForm.userEmail.$error.email">Invalid email address.</span>
+                </span>
+            </p>
+            <p>
+                <input type="submit" ng-disabled="smileForm.userName.$dirty && smileForm.userName.$invalid || smileForm.userEmail.$dirty && smileForm.userEmail.$invalid">
+            </p>
+        </form>
+    </div> -->
+
+    <div ng-app="smileArray">
+        <div><h1>{{title}}</h1></div>
+
+        <div ng-controller="smileFormCtrl">
+            <form novalidate>
+                First Name: <input type="text" ng-model="user.firstName"><br>
+                Last Name: <input type="text" ng-model="user.lastName"><br>
+                <button ng-click="reset()">Reset</button>
+            </form>
+            <p>form = {{user}}</p>
+            <p>master = {{master}}</p>
+        </div>
+
+        <div ng-controller="smileSelectCtrl">
+            <select ng-model="selectedItem" ng-options="x for (x, y) in items">
+            </select>
+
+            <div ng-switch="selectedItem">
+                <div ng-switch-when="Ford">
+                    <p>Welcome to our Ford Company...</p>
+                </div>
+            </div>
+
+            <h2>You selected: {{selectedItem}}</h2>
+            <input type="checkbox" ng-model="mySwitch">Button
+            <button ng-click="showMe()" ng-disabled="mySwitch">Click Me!</button>
+            <h4>You moved crusor {{count}}</h4>
+            <div ng-show="show">
+                <h1>Menu:</h1>
+                <div>Pizza</div>
+                <div>Pasta</div>
+                <div>Pesce</div>
+            </div>
+        </div>
+
+        <div ng-controller="smileCtrl">
+            <table style="border: 1px solid grey; border-collapse: collapse" width="100%">
+                <tr>
+                    <th ng-click="orderByMe('name')">Name</th>
+                    <th ng-click="orderByMe('country')">Country</th>
+                </tr>
+                <tr ng-repeat="x in names | orderBy: myOrderBy">
+                    <td ng-if="$odd" style="background-color: #f1f1f1">{{x.name}}</td>
+                    <td ng-if="$even">{{x.name}}</td>
+                    <td ng-if="$odd" style="background-color: #f1f1f1">{{x.country}}</td>
+                    <td ng-if="$even">{{x.country}}</td>
+                </tr>
+            </table>
+            <ul>
+                <li ng-repeat="x in names | orderBy: 'name'">
+                    {{ x.name + ',' + x.country }}
+                </li>
+            </ul>
+            Full Name: <input type="text" ng-model="fullName">
+            <h1 ng-click="changeName()">{{fullName}}</h1>
+            <smile-directive></smile-directive>
+        </div>
+
+        <div ng-controller="smileCtrlTwo">
+            <h2>{{address | currency}}</h2>
+        </div>
+
+        <div ng-controller="smileCtrlThree">
+            <input type="text" ng-model="match">
+            <ul>
+                <li ng-repeat="x in cars">
+                    {{ x | myFormat }}
+                </li>
+            </ul>
+        </div>
+
+        <div ng-controller="smileServerCtrl">
+            <input type="text" ng-model="service" style="width: 100%">
+            <p>Status : {{server}}</p>
+        </div>
+    </div>
+
+    <!-- Loading js file defined by smile -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

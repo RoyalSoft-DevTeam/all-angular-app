@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+
+    <script src="assets/js/angular/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myShoppingList">
+        <div ng-controller="myCtrl">
+            <ul>
+                <li ng-repeat="item in products">
+                    {{item}} <span ng-click="removeProduct($index)">&times;</span>
+                </li>
+            </ul>
+
+            <input type="text" ng-model="newProduct">
+            <button ng-click="addProduct()">Add Product</button>
+            <p>{{errorText}}</p>
+        </div>
+    </div>
+
+    <script src="assets/js/angular.js"></script>
+</body>
+</html>
